@@ -16,6 +16,7 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
+            background: #f8f9fa;
         }
         
         header {
@@ -23,6 +24,10 @@
             color: white;
             padding: 1rem 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
         
         .container {
@@ -60,22 +65,111 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
         }
         
         .hero {
-            background: #f8f9fa;
-            padding: 4rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 8rem 0 4rem;
             text-align: center;
+            color: white;
+            margin-top: 80px;
         }
         
         .hero h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
-            color: #2c3e50;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
         
         .properties {
             padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Property Table Styles */
+        .property-table {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        
+        .property-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .property-table th {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .property-table td {
+            padding: 1.2rem;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+        
+        .property-table tr:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .property-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .property-type {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        
+        .property-area {
+            color: #666;
+        }
+        
+        .property-price {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .property-location {
+            color: #27ae60;
+            font-weight: 500;
         }
         
         .properties-grid {
@@ -87,42 +181,60 @@
         
         .property-card {
             background: white;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
         
         .property-card h3 {
             color: #2c3e50;
             margin-bottom: 1rem;
-        }
-        
-        .property-price {
-            color: #e74c3c;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
         
         .cta-button {
             display: inline-block;
-            background: #e74c3c;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 30px;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 1rem;
+            border-radius: 8px;
+            font-weight: bold;
             border: none;
             cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
         
         footer {
-            background: #2c3e50;
+            background: #1a252f;
             color: white;
             text-align: center;
             padding: 2rem 0;
-            margin-top: 2rem;
         }
         
         @media (max-width: 768px) {
@@ -133,6 +245,23 @@
             
             nav ul {
                 margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .property-table {
+                overflow-x: auto;
+            }
+            
+            .property-table table {
+                min-width: 600px;
             }
         }
     </style>
@@ -159,14 +288,68 @@
     <section class="hero" id="home">
         <div class="container">
             <h2>Find Your Dream Property in Pune</h2>
-            <p>Discover premium residential and commercial properties across Pune</p>
+            <p>Premium residential properties in prime locations across Pune</p>
             <a href="#properties" class="cta-button">View Properties</a>
         </div>
     </section>
 
     <section class="properties" id="properties">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Featured Properties</h2>
+            <div class="section-title">
+                <h2>Premium Property Listings</h2>
+                <p>Handpicked selection of luxury properties in prime Pune locations</p>
+            </div>
+            
+            <!-- Property Table -->
+            <div class="property-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Carpet Area</th>
+                            <th>Price</th>
+                            <th>Location</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="property-type">2 BHK</span></td>
+                            <td><span class="property-area">810-875 sqft</span></td>
+                            <td><span class="property-price">₹1.07 Cr</span></td>
+                            <td><span class="property-location">Baner Sus</span></td>
+                            <td><button class="cta-button" style="padding: 8px 16px; font-size: 0.9rem;">View Details</button></td>
+                        </tr>
+                        <tr>
+                            <td><span class="property-type">3 BHK</span></td>
+                            <td><span class="property-area">1258 sqft</span></td>
+                            <td><span class="property-price">₹1.58 Cr</span></td>
+                            <td><span class="property-location">Baner NX</span></td>
+                            <td><button class="cta-button" style="padding: 8px 16px; font-size: 0.9rem;">View Details</button></td>
+                        </tr>
+                        <tr>
+                            <td><span class="property-type">2 BHK</span></td>
+                            <td><span class="property-area">869-890 sqft</span></td>
+                            <td><span class="property-price">₹1.30 Cr</span></td>
+                            <td><span class="property-location">Balewadi</span></td>
+                            <td><button class="cta-button" style="padding: 8px 16px; font-size: 0.9rem;">View Details</button></td>
+                        </tr>
+                        <tr>
+                            <td><span class="property-type">2 BHK</span></td>
+                            <td><span class="property-area">798 sqft</span></td>
+                            <td><span class="property-price">₹1.14 Cr</span></td>
+                            <td><span class="property-location">Wakad</span></td>
+                            <td><button class="cta-button" style="padding: 8px 16px; font-size: 0.9rem;">View Details</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Additional Property Cards -->
+            <div class="section-title">
+                <h2>Featured Properties</h2>
+                <p>Explore our exclusive collection of premium homes</p>
+            </div>
             
             <div class="properties-grid">
                 <div class="property-card">
@@ -177,7 +360,7 @@
                 </div>
 
                 <div class="property-card">
-                    <h3>Villa in Hinjewadi</h3>
+                    <h3>Modern Villa in Hinjewadi</h3>
                     <div class="property-price">₹1.2 Crores</div>
                     <p>4 BHK | 2000 sq.ft. | Gated Community</p>
                     <button class="cta-button">Contact Agent</button>
@@ -193,7 +376,15 @@
         </div>
     </section>
 
-    <footer id="contact">
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Ready to Find Your Dream Home?</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">Contact us today for personalized property consultation</p>
+            <a href="tel:+91XXXXXXXXXX" class="cta-button">Call Now: +91 XXXXX XXXXX</a>
+        </div>
+    </section>
+
+    <footer>
         <div class="container">
             <p>&copy; 2024 Properties Pune. All rights reserved.</p>
             <p>Email: info@propertiespune.co.in | Phone: +91 XXXXX XXXXX</p>
@@ -201,10 +392,27 @@
     </footer>
 
     <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Contact button functionality
         document.querySelectorAll('.cta-button').forEach(button => {
-            if (button.textContent === 'Contact Agent') {
+            if (button.textContent === 'Contact Agent' || button.textContent.includes('Call Now')) {
                 button.addEventListener('click', function() {
-                    alert('Thank you for your interest! Please contact us at +91 XXXXX XXXXX');
+                    alert('Thank you for your interest! Our agent will contact you soon. Please call +91 XXXXX XXXXX for immediate assistance.');
+                });
+            }
+            
+            if (button.textContent === 'View Details') {
+                button.addEventListener('click', function() {
+                    alert('Property details will be shown here. For more information, please contact our sales team.');
                 });
             }
         });
